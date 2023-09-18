@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Q007 {
+public class Q007_InversaoDeSubstring {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
         String s1,s2="";

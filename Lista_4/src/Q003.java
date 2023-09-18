@@ -11,8 +11,10 @@ public class Q003{
         }
         if(s1.equals(s2)){
             System.out.println("É um palíndromo!");
+            System.out.println(s2);
         } else{
             System.out.println("Não são palíndromos");
+            System.out.println(s2);
         }
 
     }
