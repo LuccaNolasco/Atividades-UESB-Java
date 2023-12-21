@@ -36,6 +36,9 @@ public class Data {
         this.ano = ano;
     }
 
+    /**
+     * @return A data no padrão Dia/Mês/Ano
+     */
     @Override
     public String toString(){
         return dia+"/"+mes+"/"+ano;

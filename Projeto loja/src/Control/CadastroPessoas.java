@@ -3,8 +3,8 @@ import Model.Pessoa;
 
 
 public class CadastroPessoas {
-    //Creio que arraylist seria melhor, tendo em vista a quantidade desconhecida
-    //Mas usarei Array conforme a atividade solicita
+    /*Creio que arraylist seria melhor, tendo em vista a quantidade desconhecida
+    Mas usarei Array conforme a atividade solicita*/
     Pessoa[] arrPessoa;
     private static int qtdAtual = 0;
 
@@ -13,24 +13,34 @@ public class CadastroPessoas {
         arrPessoa = new Pessoa[3];
     }
 
-    //Na atividade não solicita, mas um método de busca é essencial para garantir
-    //que não haja repetições
+    public int getQtdAtual(){
+        return qtdAtual;
+    }
 
+    /**
+     * Embora não solicitado, um método de busca é essencial para se evitar repetições
+     * Vale notar que esse método é mais eficiente com ArrayLists, já que não precisa testar
+     * se é null.
+     * @param nome
+     * @return O objeto Pessoa se existir algum com esse nome, ou null se nn existir
+     */
     public Pessoa buscaPessoa(String nome) {
         for (Pessoa p : arrPessoa) {
-            if(p==null)
-                return p;
-
+            if(p==null){
+                continue;
+            }
             if (p.getNome().equals(nome)) {
                 return p;
             }
         }
-
         return null;
     }
 
 
-    //Checa se a pessoa já existe, e depois cadastra e adiciona à quantidade atual
+    /**
+     * Checa se a pessoa já está no Array. Não estando, a adiciona no menor indice disponível
+     * @param pessoa
+     */
     public void cadastraPessoa(Pessoa pessoa) {
         //para não dar index out of bounds
         if(qtdAtual>=3){
@@ -53,9 +63,11 @@ public class CadastroPessoas {
         pessoa.imprimeDados();
     }
 
-    //Para listar todos os membros
+    /**
+     * Lista todos os cadastrados
+     */
     public void listaPessoas(){
-        for(Pessoa p: arrPessoa){
+        for (Pessoa p : arrPessoa){
             p.imprimeDados();
             //para pular uma linha;
             System.out.println();

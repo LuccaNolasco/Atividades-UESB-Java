@@ -9,13 +9,15 @@ public class TestaCadastro {
     public static void main(String[] args) {
         //Nessa classe, quero fazer uma interface de escolha para o usuário
 
+
         CadastroPessoas cad = new CadastroPessoas();
         int opt = 0;
-        while(opt!=4){
+        while(opt!=5){
             System.out.println("1 - Cadastrar Pessoa");
             System.out.println("2 - Checar Cadastro");
             System.out.println("3 - Listar todos os cadastros");
-            System.out.println("4 - Encerrar programa");
+            System.out.println("4 - Quantidade de Pessoas cadastradas");
+            System.out.println("5 - Encerrar programa");
             System.out.print("Sua opção: ");
             opt=cin.nextInt();
             cin.nextLine();//Para consumir o enter do nextInt
@@ -32,6 +34,10 @@ public class TestaCadastro {
                     telaListaPessoas(cad);
                     break;
                 case 4:
+                    System.out.printf("Quantidade de cadastros: %d\n",cad.getQtdAtual());
+                    System.out.println();
+                    break;
+                case 5:
                     cin.close();
                     System.exit(0);
                 default:
@@ -43,7 +49,11 @@ public class TestaCadastro {
 
     }
 
-    //Esse método serve para checar se é cliente, funcionário comum ou gerente, e adicionar ao array
+    /**
+     * Esse método serve para checar se é cliente,
+     * funcionário comum ou gerente, e adicionar ao array
+     * @param cad (objeto de CadastroPessoas)
+     */
     public static void telaCadastro(CadastroPessoas cad){
         Pessoa p;
         System.out.println("Insira qual tipo de cadastro deseja \n1-Cliente\n2-Funcionário\n3-Gerente");
@@ -85,12 +95,21 @@ public class TestaCadastro {
         }
     }
 
+    /**
+     *  Procura pelo nome. O essencial seria ter um parametro que todas
+     *  as classes possuam, mas que seja exclusivo de cada, como um cpf
+     * @param cad (objeto de CadastroPessoas)
+     */
     public static void telaChecaCadastro(CadastroPessoas cad){
         System.out.println("Insira o nome que deseja procurar");
         String nome = cin.nextLine();
         (cad.buscaPessoa(nome)).imprimeDados();
     }
 
+    /**
+     * Chama o método listaPessoas() e imprime as informações na tela
+     * @param cad (objeto de CadastroPessoas)
+     */
     public static void telaListaPessoas(CadastroPessoas cad){
         cad.listaPessoas();
     }

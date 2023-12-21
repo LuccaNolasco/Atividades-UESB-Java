@@ -17,16 +17,21 @@ public class Funcionario extends Pessoa{
         this.salario = salario;
     }
 
-    //Retorna o imposto que é retirado do salário
-    //Com esse método, posso colocar 0.05 no gerente, e assim, reutilizar código
-    //Graças a ele posso usar um super.imprimeDado() em gerente, e apenas adicionar a área
+    /**
+     * Retorna o imposto que é retirado do salário.
+     * Com esse método, posso colocar 0.05 no gerente, e assim, reutilizar código.
+     * Graças a ele posso usar um super.imprimeDado() em gerente, e apenas adicionar a área
+     * @return retorna o imposto que será posteriormente retirado do salário
+     */
     public double calculaImposto(){
         return salario*0.03;
     }
 
 
-    @Override //Como classe filha, ela deve possuir os métodos declarados como
-    //abstratos na classe pai
+    /**
+     * Como classe filha, ela deve possuir os métodos declarados como abstratosna classe pai
+     */
+    @Override
     public void imprimeDados() {
         System.out.printf("Nome: %s\n",this.getNome());
         System.out.println("Nascimento: "+this.getNascimento());

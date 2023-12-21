@@ -26,14 +26,27 @@ public class Gerente extends Funcionario{
         return bonificacao;
     }
 
+    /**
+     * Não pude colocar o salário já multiplicado à bonificação no superConstrutor,
+     * então esse método serve para realizar essa multiplicação
+     */
     public void aplicarBonificacao(){
         setSalario(getSalario()*bonificacao);
     }
 
+    /**
+     * Com o override, posso reaproveitar o chamamento dessa função na imprimeDados da
+     * classe Funcionário, de modo que o código fica ainda mais enxuto e eficiente
+     * @return O imposto que será retirado do salário
+     */
     @Override
     public double calculaImposto(){
         return getSalario()*0.05;
     }
+
+    /**
+     * Já chama os dados da classe Funcionário e só precisa adicionar a área do gerente
+     */
     public void imprimeDados(){
         super.imprimeDados();
         System.out.println("Área: "+area);

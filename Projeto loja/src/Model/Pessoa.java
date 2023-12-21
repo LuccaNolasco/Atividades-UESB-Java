@@ -26,7 +26,11 @@ public abstract class  Pessoa {
         this.nascimento = nascimento;
     }
 
-    //Apenas uma forma geral da impreção de dados
-    // Como é "imprimeDados" e não "getDados", farei a impressão no próprio método, logo, é void
+    /**
+     *Apenas uma forma geral da impreção de dados.
+     *Como é "imprimeDados" e não "getDados", farei a impressão no próprio método,
+     *logo, é void
+     */
     public abstract void imprimeDados();
+
 }
